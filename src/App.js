@@ -1,14 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
-import Sound from './state/Sound';
-import Name from './state/Name';
-import Color from './state/Color';
-import Hobby from './state/Hobby';
+import AttendanceContainer from './map/normal/AttendanceContainer';
+import ProductContainer from './map/expert/ProductContainer';
+import CheckboxContainer from './map/expert/CheckboxContainer';
 
 function App() {
   return (
     <>
-      <Hobby />
+      <CheckboxContainer />
     </>
   );
 }
