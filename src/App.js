@@ -1,13 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
-import AttendanceContainer from './map/normal/AttendanceContainer';
-import ProductContainer from './map/expert/ProductContainer';
 import CheckboxContainer from './map/expert/CheckboxContainer';
+import FoodContainer from './ref/expert/FoodContainer';
 
 function App() {
   return (
     <>
-      <CheckboxContainer />
+      <FoodContainer />
     </>
   );
 }

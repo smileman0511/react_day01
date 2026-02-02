@@ -19,7 +19,7 @@ const CheckboxContainer = () => {
       setSelectedLanguages(selectedLanguages.filter((language) => language !== value))
     }
   }
-
+  
   console.log("selectedLanguages", selectedLanguages)
   const selectedList = selectedLanguages.map((language, i) => (
     <strong key={i} style={{marginRight: "8px"}}>{language}</strong>
