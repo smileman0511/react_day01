@@ -25,7 +25,7 @@ const FoodContainer = () => {
     setChecked(new Array(newFood.length).fill(false))
   }
 
-  // 컴포넌트로 분리
+  // 컴포넌트로 분리하기
   const foodList = foods.map(({kor, eng}, i) => (
     <Food 
       key={i} 
