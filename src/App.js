@@ -1,11 +1,10 @@
 import './App.css';
-import CheckboxContainer from './map/expert/CheckboxContainer';
-import FoodContainer from './ref/expert/FoodContainer';
+import AnimalsContainer from './context/expert/AnimalsContainer';
 
 function App() {
   return (
     <>
-      <FoodContainer />
+      <AnimalsContainer />
     </>
   );
 }

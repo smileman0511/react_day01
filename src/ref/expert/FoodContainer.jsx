@@ -30,8 +30,8 @@ const FoodContainer = () => {
     <Food 
       key={i} 
       kor={kor} 
-      eng={eng}  
-      checked={checked[i] || false}
+      eng={eng}
+      checked={checked[i] ? true : false}
       onChange={(e) => {handleCheckboxOnChange(e, i)}}
     />
   ))
