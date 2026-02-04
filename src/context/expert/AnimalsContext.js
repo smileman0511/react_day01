@@ -11,15 +11,14 @@ export const AnimalsProvider = ({children}) => {
   
   const [animals, setAnimals] = useState(["누렁이", "점박이", "얼룩이"])
   const value = {
-    state: {animals},
+    state: {
+      animals
+    },
     actions: {
-      insert: () => {},
-      remove: () => {}
+      insert: (animalName) => {setAnimals(animals.concat(animalName))},
+      remove: (animalName) => {setAnimals(animals.filter(animal => animal != animalName))}
     }
   }
-
-  // 실습
-  // insert 메서드를 완성하시오!
 
   return (
     <AnimalsContext.Provider value={value}>
@@ -27,5 +26,3 @@ export const AnimalsProvider = ({children}) => {
     </AnimalsContext.Provider>
   )
 }
-
-

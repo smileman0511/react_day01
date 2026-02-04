@@ -4,38 +4,39 @@ import { AnimalsContext } from './AnimalsContext';
 const Animals = () => {
 
   // Context에 있는 동물 세마리를 버튼으로 출력하시오
-  // input에 동물을 입력 후 엔터치면 동물 버튼이 추가되게 구현하세요.
-
-  // 컨텍스트, 상태를 가져오기
-  const [value, setValue] = useState([])
-  const { state, actions } = useContext(AnimalsContext)
-
-  // 입력값을 버튼으로 상태 변경?
-  const handleInputAnimalOnChange = (e) => {
-    setValue(e.target.value)
-  }
+  const {state, actions} = useContext(AnimalsContext)
+  const {insert, remove} = actions;
+  const {animals} = state;
   
+  // 동물 입력 및 추가 로직
+  const animalList = animals.map((animal, i) => (
+    <button key={i} onClick={() => remove(animal)}>
+      {animal}
+    </button>
+  ))
 
-  // 엔터 눌렀을 때 작동하는 엔터 함수
-  const handleEnterPress = (e) => {
-    if(e.key === "Enter") {
-      const value = e.target.value
-      console.log("value 값: ", value)
-    }
-  }
-  // 엔터 누르면 동물 버튼 생성,
-  // e.key === enter
-  // e.target.value에 동물 이름 값이 들어감
+  // 동물 버튼을 누르면, 그 버튼을 삭제하는 로직 완성!
+  // context에 remove 메서드 구현!
 
+  // 입력 + 엔터면 animalList가 1개씩 늘어남.
+  // 버튼을 누르면 제거한다. 새로운 배열로 만들어서 보여주기?
+  // 배열 생성 메서드 filter, find, some, map, include, 
+  // 안눌린 버튼들만 걸러서 새로운 배열로 만들기
+  // 버튼 클릭하면 제거
+  console.log(animalList) // -> 배열
 
+  
   return (
     <div>
-      <input type="text" 
-        placeholder='동물을 입력하세요.'
-        onKeyDown={handleInputAnimalOnChange}
+      <input 
+        type="text" placeholder='동물을 입력하세요.'
+        onKeyPress={(e) => {
+          if(e.key === 'Enter'){
+            insert(e.target.value)
+          }
+        }}
       />
-      <h2>결과</h2>
-      <p></p>
+      {animalList}
     </div>
   );
 };

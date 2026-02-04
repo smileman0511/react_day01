@@ -1,10 +1,13 @@
-import './App.css';
-import AnimalsContainer from './context/expert/AnimalsContainer';
+import { RouterProvider } from "react-router-dom";
+import router from "./router/router";
+import { RouteProvider } from "./context/expert/RouteContext";
 
 function App() {
   return (
-    <>
-      <AnimalsContainer />
+    <> 
+      <RouteProvider>
+        <RouterProvider router={router} />
+      </RouteProvider>
     </>
   );
 }
