@@ -1,0 +1,36 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import useAuthStore from './store/useAuthStore';
+
+const Zustand02 = () => {
+
+  const {
+    isLogin, currentMember , PreviousUrl,
+    setIsLogin, setCurrentMember, setPreviousUrl
+  } = useAuthStore()
+
+
+  const login = () => {
+    setIsLogin(true)
+    setCurrentMember({
+      memberEmail : "test123@gmail.com",
+      memberPassword: "test123!@#",
+      memberName : "홍길동",
+    })
+  }
+
+  return (
+    <div>
+      <Link to={"/zustand/03"}>3번으로 이동</Link>
+      <p>Zustand02</p>
+      {/* 
+        1. 로그인 처리 후 새로고침의 문제 해결!
+        2. 모든 페이지에서 데이터를 공유 할 수 있는가!
+       */}
+
+      <button onClick={login}>로그인</button>
+    </div>
+  );
+};
+
+export default Zustand02;
