@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import useAuthStore from './store/useAuthStore';
+import useAuthStore, { initialMember } from './store/useAuthStore';
 
 const Zustand02 = () => {
 
@@ -19,6 +19,11 @@ const Zustand02 = () => {
     })
   }
 
+  const logout = () => {
+    setIsLogin(false)
+    setCurrentMember(initialMember)
+  }
+
   return (
     <div>
       <Link to={"/zustand/03"}>3번으로 이동</Link>
@@ -29,6 +34,7 @@ const Zustand02 = () => {
        */}
 
       <button onClick={login}>로그인</button>
+      <button onClick={logout}>로그아웃</button>
     </div>
   );
 };

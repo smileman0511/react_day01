@@ -14,6 +14,8 @@ import Zustand01 from "../zustand/Zustand01";
 import ZustandLayout from "../zustand/ZustandLayout";
 import Zustand02 from "../zustand/Zustand02";
 import Zustand03 from "../zustand/Zustand03";
+import AuthLayout from "../zustand/AuthLayout";
+import SignUp from "../hooks/SignUp";
 
 // 구분점!
 // ※path를 통해서도 값을 넘길 수 있다.
@@ -75,9 +77,19 @@ const router = createBrowserRouter([
       },
       {
         path: "03",
-        element: <Zustand03 />
+        element: <AuthLayout />,
+        children: [
+          {
+            path: "",
+            element: <Zustand03 />
+          }
+        ]
       }
     ]
+  },
+  {
+    path: "/sign-up", // 가독성 때문에 path는 케밥 표기법 사용
+    element: <SignUp />
   },
   {
     path: "*",
